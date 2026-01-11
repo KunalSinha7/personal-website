@@ -3,11 +3,9 @@
 @import 'tailwindcss';
 
 @theme {
-    --background-image-noise: linear-gradient(
-            to bottom,
+    --background-image-noise: linear-gradient(to bottom,
             color-mix(in oklab, var(--color-neutral-950) 0%, transparent),
-            color-mix(in oklab, var(--color-neutral-950) 100%, transparent)
-        ),
+            color-mix(in oklab, var(--color-neutral-950) 100%, transparent)),
         url('/images/noise.png');
     --color-primary: #2bdcd2;
     --color-primary-content: #171717;
@@ -33,7 +31,7 @@
         @apply underline transition hover:opacity-80;
     }
 
-    :not(pre) > code {
+    :not(pre)>code {
         @apply px-1 py-0.5 font-mono rounded bg-neutral-900 text-yellow-200;
         font-size: 0.9em;
     }
@@ -41,7 +39,7 @@
 
 @layer components {
     .markdown {
-        > * {
+        >* {
             @apply my-4;
         }
 
@@ -94,12 +92,14 @@
             outline: 2px solid var(--color-gray-400);
             outline-offset: 1px;
         }
+
         &:focus-visible {
             .diff-resizer {
                 min-width: 80cqi;
                 max-width: 80cqi;
             }
         }
+
         &:has(.diff-item-2:focus-visible) {
             .diff-resizer {
                 min-width: 20cqi;
@@ -136,6 +136,7 @@
             box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-gray-900) 5%, transparent),
                 0 1px 3px 0 color-mix(in oklab, var(--color-gray-900) 20%, transparent);
         }
+
         @supports (-webkit-overflow-scrolling: touch) and (overflow: -webkit-paged-x) {
             &:after {
                 content: none;
@@ -145,13 +146,89 @@
 
     .diff-item-1,
     .diff-item-2 {
-        > * {
+        >* {
             height: 100%;
             width: 100cqi;
             position: absolute;
             top: 0;
             left: 0;
             pointer-events: none;
+        }
+    }
+
+    /* Timeline Styles */
+    .timeline-wrapper {
+        position: relative;
+        border-left: 2px solid rgba(255, 255, 255, 0.2);
+        margin-left: 1rem;
+        padding-left: 2rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+
+        /* h2 is now outside the timeline wrapper */
+
+        h3 {
+            display: flex;
+            align-items: center;
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            font-weight: 600;
+            color: rgb(147 197 253);
+            margin-top: 2rem;
+            margin-bottom: 0.25rem;
+            position: relative;
+
+            /* The Dot */
+            &::before {
+                content: '';
+                position: absolute;
+                width: 1rem;
+                height: 1rem;
+                background-color: rgb(59 130 246);
+                border-radius: 9999px;
+                border: 2px solid rgba(255, 255, 255, 0.2);
+                left: -2.6rem;
+                /* Adjust based on border/padding */
+                box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+            }
+        }
+
+        /* First Role shouldn't have top margin (sits nicely under H2) */
+        h3:first-of-type {
+            margin-top: 0 !important;
+        }
+
+        h4 {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 500;
+            color: rgb(156 163 175);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        p {
+            color: rgb(209 213 219);
+            line-height: 1.625;
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            list-style-type: disc;
+            list-style-position: outside;
+            margin-left: 1rem;
+            color: rgb(209 213 219);
+        }
+
+        ul::marker {
+            color: rgb(107 114 128);
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
         }
     }
 }

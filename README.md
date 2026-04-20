@@ -1,43 +1,64 @@
-# Next.js on Netlify Platform Starter
+# Kunal Sinha's Personal Website
 
-[Live Demo](https://nextjs-platform-starter.netlify.app/)
+A high-performance, minimalist personal portfolio built using the latest web technologies. This project serves as a professional showcase of work experience and education, optimized for speed, SEO, and developer experience.
 
-A modern starter based on Next.js 16 (App Router), Tailwind, and [Netlify Core Primitives](https://docs.netlify.com/core/overview/#develop) (Edge Functions, Image CDN, Blob Store).
+## 🚀 Tech Stack
 
-In this site, Netlify Core Primitives are used both implictly for running Next.js features (e.g. Route Handlers, image optimization via `next/image`, and more) and also explicitly by the user code.
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
+- **Library:** [React 19](https://react.dev/) (utilizing the new **React Compiler**)
+- **Styling:** [Tailwind CSS 4](https://tailwindcss.com/) (CSS-first configuration)
+- **Content:** [MDX](https://mdxjs.com/) for structured pages (`/work`, `/education`)
+- **Icons:** [FontAwesome 7](https://fontawesome.com/)
+- **Deployment:** [Netlify](https://www.netlify.com/) (configured with Netlify Core Primitives)
 
-Implicit usage means you're using any Next.js functionality and everything "just works" when deployed - all the plumbing is done for you. Explicit usage is framework-agnostic and typically provides more features than what Next.js exposes.
+## 📂 Project Structure
 
-## Deploying to Netlify
+- `app/`: Core application routes and metadata.
+  - `page.jsx`: Hero/Home page.
+  - `work/page.mdx`: Professional history.
+  - `education/page.mdx`: Academic background.
+  - `layout.jsx`: Root layout with global background and metadata.
+- `components/`: Shared React components (e.g., `Footer`).
+- `styles/`: Global styles and Tailwind `@theme` configuration in `globals.css`.
+- `public/`: Static assets including optimized WebP backgrounds and SVG icons.
 
-Click the button below to deploy this template to your Netlify account.
+## 🛠️ Local Development
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/next-platform-starter)
+### Prerequisites
 
-## Developing Locally
+- **Node.js:** 20+ (recommended for Tailwind 4 performance)
+- **Netlify CLI:** [Install globally](https://docs.netlify.com/cli/get-started/) for local emulation.
+  ```bash
+  npm install netlify-cli@latest -g
+  ```
 
-1. Clone this repository, then run `npm install` in its root directory.
+### Getting Started
 
-2. For the starter to have full functionality locally (e.g. edge functions, blob store), please ensure you have an up-to-date version of Netlify CLI. Run:
+1. Clone the repository and navigate to the root directory.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Link your local repository to your Netlify site (ensures runtime parity):
+   ```bash
+   netlify link
+   ```
+4. Run the development server via Netlify CLI:
+   ```bash
+   netlify dev
+   ```
+   Open [http://localhost:8888](http://localhost:8888) in your browser.
 
+## 🏗️ Build & Deployment
+
+### Production Build
+To generate an optimized production build:
+```bash
+npm run build
 ```
-npm install netlify-cli@latest -g
-```
 
-3. Link your local repository to the deployed Netlify site. This will ensure you're using the same runtime version for both local development and your deployed site.
-
-```
-netlify link
-```
-
-4. Then, run the Next.js development server via Netlify CLI:
-
-```
-netlify dev
-```
-
-If your browser doesn't navigate to the site automatically, visit [localhost:8888](http://localhost:8888).
-
-## Resources
-
-- Check out the [Next.js on Netlify docs](https://docs.netlify.com/frameworks/next-js/overview/)
+### Netlify Deployment
+The project is configured for seamless deployment on Netlify. 
+- **Build Command:** `npm run build`
+- **Publish Directory:** `.next`
+- **Configuration:** Managed via `netlify.toml` for standard platform builds.

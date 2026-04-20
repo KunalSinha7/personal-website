@@ -27,7 +27,10 @@ A high-performance, minimalist personal portfolio built using the latest web tec
 ### Prerequisites
 
 - **Node.js:** 20+ (recommended for Tailwind 4 performance)
-- **Package Manager:** npm
+- **Netlify CLI:** [Install globally](https://docs.netlify.com/cli/get-started/) for local emulation.
+  ```bash
+  npm install netlify-cli@latest -g
+  ```
 
 ### Getting Started
 
@@ -36,11 +39,15 @@ A high-performance, minimalist personal portfolio built using the latest web tec
    ```bash
    npm install
    ```
-3. Start the development server:
+3. Link your local repository to your Netlify site (ensures runtime parity):
    ```bash
-   npm run dev
+   netlify link
    ```
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
+4. Run the development server via Netlify CLI:
+   ```bash
+   netlify dev
+   ```
+   Open [http://localhost:8888](http://localhost:8888) in your browser.
 
 ## 🏗️ Build & Deployment
 

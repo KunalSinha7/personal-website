@@ -26,7 +26,7 @@ A high-performance, minimalist personal portfolio built using the latest web tec
 
 ### Prerequisites
 
-- **Node.js:** 20+ (recommended for Tailwind 4 performance)
+- **Node.js:** 24+ (recommended for modern Action compatibility)
 - **Netlify CLI:** [Install globally](https://docs.netlify.com/cli/get-started/) for local emulation.
   ```bash
   npm install netlify-cli@latest -g
